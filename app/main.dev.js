@@ -23,7 +23,7 @@ export default class AppUpdater {
   }
 }
 
-let mainWindow = null;
+let window1 = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -67,33 +67,33 @@ app.on('ready', async () => {
     await installExtensions();
   }
 
-  mainWindow = new BrowserWindow({
+  window1 = new BrowserWindow({
     show: false,
     width: 1024,
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  window1.loadURL(`file://${__dirname}/window1/app.html`);
 
   // @TODO: Use 'ready-to-show' event
   //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-  mainWindow.webContents.on('did-finish-load', () => {
-    if (!mainWindow) {
-      throw new Error('"mainWindow" is not defined');
+  window1.webContents.on('did-finish-load', () => {
+    if (!window1) {
+      throw new Error('"window1" is not defined');
     }
     if (process.env.START_MINIMIZED) {
-      mainWindow.minimize();
+      window1.minimize();
     } else {
-      mainWindow.show();
-      mainWindow.focus();
+      window1.show();
+      window1.focus();
     }
   });
 
-  mainWindow.on('closed', () => {
-    mainWindow = null;
+  window1.on('closed', () => {
+    window1 = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
+  const menuBuilder = new MenuBuilder(window1);
   menuBuilder.buildMenu();
 
   // Remove this if your app does not use auto updates

@@ -7,6 +7,7 @@ import fs from 'fs';
 function CheckBuildsExist() {
   const mainPath = path.join(__dirname, '..', '..', 'app', 'main.prod.js');
   const window1RendererPath = getRendererPath('window1');
+  const window2RendererPath = getRendererPath('window2');
 
   if (!fs.existsSync(mainPath)) {
     throw new Error(
@@ -20,6 +21,14 @@ function CheckBuildsExist() {
     throw new Error(
       chalk.whiteBright.bgRed.bold(
         'The window1 renderer process is not built yet. Build it by running "yarn build-renderer"'
+      )
+    );
+  }
+
+  if (!fs.existsSync(window2RendererPath)) {
+    throw new Error(
+      chalk.whiteBright.bgRed.bold(
+        'The window2 renderer process is not built yet. Build it by running "yarn build-renderer"'
       )
     );
   }

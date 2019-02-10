@@ -24,6 +24,7 @@ export default class AppUpdater {
 }
 
 let window1 = null;
+let window2 = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -73,7 +74,14 @@ app.on('ready', async () => {
     height: 728
   });
 
+  window2 = new BrowserWindow({
+    show: false,
+    width: 1024,
+    height: 728
+  });
+
   window1.loadURL(`file://${__dirname}/window1/app.html`);
+  window2.loadURL(`file://${__dirname}/window2/app.html`);
 
   // @TODO: Use 'ready-to-show' event
   //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
@@ -89,12 +97,31 @@ app.on('ready', async () => {
     }
   });
 
+  // @TODO: Use 'ready-to-show' event
+  //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
+  window2.webContents.on('did-finish-load', () => {
+    if (!window2) {
+      throw new Error('"window2" is not defined');
+    }
+    if (process.env.START_MINIMIZED) {
+      window2.minimize();
+    } else {
+      window2.show();
+    }
+  });
+
   window1.on('closed', () => {
     window1 = null;
   });
 
-  const menuBuilder = new MenuBuilder(window1);
-  menuBuilder.buildMenu();
+  window2.on('closed', () => {
+    window2 = null;
+  });
+
+  const menuBuilder1 = new MenuBuilder(window1);
+  const menuBuilder2 = new MenuBuilder(window2);
+  menuBuilder1.buildMenu();
+  menuBuilder2.buildMenu();
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

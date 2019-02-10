@@ -45,12 +45,18 @@ export default merge.smart(baseConfig, {
 
   target: 'electron-renderer',
 
-  entry:{
+  entry: {
     window1: [
       'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${port}/`,
       'webpack/hot/only-dev-server',
       require.resolve('../app/window1/index')
+    ],
+    window2: [
+      'react-hot-loader/patch',
+      `webpack-dev-server/client?http://localhost:${port}/`,
+      'webpack/hot/only-dev-server',
+      require.resolve('../app/window2/index')
     ]
   },
 

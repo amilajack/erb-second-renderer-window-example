@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Hello Electron React!</title>
+    <title>Hello Electron React!: Window 1</title>
     <script>
       (function() {
         if (!process.env.HOT) {
           const link = document.createElement('link');
           link.rel = 'stylesheet';
-          link.href = './dist/style.css';
+          link.href = '../dist/style.css';
           // HACK: Writing the script path should be done with webpack
           document.getElementsByTagName('head')[0].appendChild(link);
         }
@@ -24,15 +24,15 @@
         // Dynamically insert the DLL script in development env in the
         // renderer process
         if (process.env.NODE_ENV === 'development') {
-          scripts.push('../dll/renderer.dev.dll.js');
+          scripts.push('../../dll/renderer.dev.dll.js');
         }
 
         // Dynamically insert the bundled app script in the renderer process
         const port = process.env.PORT || 1212;
         scripts.push(
           process.env.HOT
-            ? 'http://localhost:' + port + '/dist/renderer.dev.js'
-            : './dist/renderer.prod.js'
+            ? 'http://localhost:' + port + '/dist/window1.renderer.dev.js'
+            : '../dist/window1.renderer.prod.js'
         );
 
         document.write(

@@ -6,14 +6,7 @@ import fs from 'fs';
 
 function CheckBuildsExist() {
   const mainPath = path.join(__dirname, '..', '..', 'app', 'main.prod.js');
-  const rendererPath = path.join(
-    __dirname,
-    '..',
-    '..',
-    'app',
-    'dist',
-    'renderer.prod.js'
-  );
+  const window1RendererPath = getRendererPath('window1');
 
   if (!fs.existsSync(mainPath)) {
     throw new Error(
@@ -23,13 +16,24 @@ function CheckBuildsExist() {
     );
   }
 
-  if (!fs.existsSync(rendererPath)) {
+  if (!fs.existsSync(window1RendererPath)) {
     throw new Error(
       chalk.whiteBright.bgRed.bold(
-        'The renderer process is not built yet. Build it by running "yarn build-renderer"'
+        'The window1 renderer process is not built yet. Build it by running "yarn build-renderer"'
       )
     );
   }
 }
 
 CheckBuildsExist();
+
+function getRendererPath(name: string) {
+  return path.join(
+    __dirname,
+    '..',
+    '..',
+    'app',
+    'dist',
+    `${name}.renderer.prod.js`
+  );
+}

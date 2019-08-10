@@ -189,7 +189,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
-    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-dev-expression": "^0.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
     "chalk": "^2.4.1",
     "concurrently": "^4.1.0",

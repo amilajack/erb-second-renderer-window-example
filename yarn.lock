@@ -1260,10 +1260,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-free@^5.6.3":
-  version "5.6.3"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.6.3.tgz#61c122c420d7a91613f393d6a06e5a4c6ae6abf3"
-  integrity sha512-s5PLdI9NYgjBvfrv6rhirPHlAHWx+Sfo/IjsAeiXYfmemC/GSjwsyz1wLnGPazbLPXWfk62ks980o9AmsxYUEQ==
+"@fortawesome/fontawesome-free@^5.13.1":
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.13.1.tgz#c53b4066edae16cd1fd669f687baf031b45fb9d6"
+  integrity sha512-D819f34FLHeBN/4xvw0HR0u7U2G7RqjPSggXqf7LktsxWQ48VAfGwvMrhcVuaZV2fF069c/619RdgCCms0DHhw==
 
 "@iamstarkov/listr-update-renderer@0.4.1":
   version "0.4.1"

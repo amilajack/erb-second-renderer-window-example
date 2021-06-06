@@ -6025,10 +6025,10 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@^0.77.0:
-  version "0.77.0"
-  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.77.0.tgz#4e5c93929f289a0c28e08fb361a9734944a11297"
-  integrity sha1-TlyTkp8omgwo4I+zYalzSUShEpc=
+flow-bin@^0.152.0:
+  version "0.152.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.152.0.tgz#6980d0cd58f59e9aefd580b11109a1d56eba46b1"
+  integrity sha512-b4ijbZIQovcx5l/T7VnwyBPIikj60A2qk7hKqQKVWiuftQMrUmC5ct2/0SuVvheX6ZbPdZfeyw2EHO1/n3eAmw==
 
 flow-runtime@^0.17.0:
   version "0.17.0"
